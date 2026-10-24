@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ejuvv-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "dev-server.js"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "ejuvv-painel",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "../ejuvv-admin/dev-server.js"
+      ],
+      "port": 4174
+    }
+  ]
+}

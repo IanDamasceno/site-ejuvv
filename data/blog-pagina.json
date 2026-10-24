@@ -1,0 +1,22 @@
+{
+  "pagina": {
+    "eyebrow": "Blog da EJUVV",
+    "titulo": "Ideias, bastidores e aprendizados.",
+    "texto": "Artigos da equipe sobre sites, tecnologia, gestão e o dia a dia de uma empresa júnior.",
+    "vazioTitulo": "Os primeiros artigos estão a caminho.",
+    "vazioTexto": "Enquanto isso, acompanhe a EJUVV no Instagram para ver as novidades.",
+    "chamadaEyebrow": "Vamos conversar",
+    "chamadaTitulo": "Tem um projeto em mente?",
+    "chamadaTexto": "Conte o que sua empresa precisa. A equipe responde para entender o contexto e avaliar como pode ajudar.",
+    "chamadaBotao": "Falar com a EJUVV"
+  },
+  "categorias": [
+    { "slug": "tecnologia", "nome": "Tecnologia" },
+    { "slug": "negocios", "nome": "Negócios" },
+    { "slug": "bastidores", "nome": "Bastidores" }
+  ],
+  "seo": {
+    "titulo": "Blog",
+    "descricao": "Artigos da EJUVV sobre sites, tecnologia, gestão e o dia a dia de uma empresa júnior da Universidade Vila Velha."
+  }
+}

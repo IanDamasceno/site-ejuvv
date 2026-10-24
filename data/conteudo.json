@@ -1,0 +1,757 @@
+{
+  "geral": {
+    "marca": "EJUVV",
+    "logo": "/assets/img/logo-ejuvv-symbol.png",
+    "descricao": "Empresa Júnior da Universidade Vila Velha.",
+    "email": "comercial@ejuvv.com",
+    "whatsapp": "(27) 99311-7132",
+    "endereco": "Universidade Vila Velha, Vila Velha/ES",
+    "horario": "Segunda a sexta, das 9h às 18h",
+    "instagram": "@ejuvv",
+    "instagramUrl": "https://instagram.com/ejuvv",
+    "orbitaInstagram": "@ejuvv.orbita",
+    "orbitaInstagramUrl": "https://www.instagram.com/ejuvv.orbita/",
+    "mapa": {
+      "descricao": "Mapa da região da Universidade Vila Velha",
+      "rotulo": "Abrir a localização da EJUVV na Universidade Vila Velha no Google Maps",
+      "titulo": "EJUVV, Universidade Vila Velha",
+      "subtitulo": "Vila Velha/ES · Abrir no mapa",
+      "link": "https://www.google.com/maps/place/EJUVV/@-20.3543106,-40.2992636,17z/data=!4m12!1m5!3m4!2zMjDCsDIxJzE1LjUiUyA0MMKwMTcnNTcuNCJX!8m2!3d-20.3543106!4d-40.2992636!3m5!1s0xb81797c7fc676d:0x207bbcc835473b2b!8m2!3d-20.3556038!4d-40.2984255!16s%2Fg%2F11gtg815n9?entry=ttu",
+      "embed": "https://www.openstreetmap.org/export/embed.html?bbox=-40.31043%2C-20.3715%2C-40.28643%2C-20.3543&layer=mapnik&marker=-20.3556038%2C-40.2984255"
+    },
+    "migalhas": false,
+    "seo": {
+      "titulo": "EJUVV | Estratégia para negócios",
+      "descricao": "Empresa Júnior da Universidade Vila Velha. Projetos de sites, e-commerce, automação de atendimento e sistemas sob medida.",
+      "compartilharTitulo": "EJUVV. Estratégia para negócios. Experiência para o futuro.",
+      "compartilharDescricao": "Conheça os serviços e projetos desenvolvidos por estudantes da Universidade Vila Velha.",
+      "imagem": "/og.png"
+    }
+  },
+  "cabecalho": {
+    "menu": [
+      {
+        "rotulo": "Início",
+        "destino": "/"
+      },
+      {
+        "rotulo": "Sobre",
+        "destino": "/sobre/"
+      },
+      {
+        "rotulo": "Soluções",
+        "destino": "/solucoes/"
+      },
+      {
+        "rotulo": "Projetos",
+        "destino": "/projetos/"
+      },
+      {
+        "rotulo": "Blog",
+        "destino": "/blog/"
+      },
+      {
+        "rotulo": "Órbita",
+        "destino": "/orbita/"
+      },
+      {
+        "rotulo": "Contato",
+        "destino": "/contato/"
+      }
+    ],
+    "botao": {
+      "texto": "Pedir orçamento",
+      "destino": "/contato/"
+    },
+    "botaoMobile": {
+      "texto": "Faça parte da EJUVV",
+      "destino": "/orbita/"
+    }
+  },
+  "processo": {
+    "passos": [
+      "Conversa e diagnóstico",
+      "Escopo e proposta",
+      "Planejamento",
+      "Desenvolvimento com acompanhamento",
+      "Entrega e orientação de uso"
+    ]
+  },
+  "servicos": [
+    {
+      "slug": "e-commerce",
+      "titulo": "E-commerce",
+      "icone": "i-panels",
+      "problema": "A empresa quer vender pela internet, mas ainda não tem uma loja simples de usar.",
+      "descricao": "Planejamos e desenvolvemos lojas virtuais responsivas, com produtos bem organizados e um caminho de compra fácil de entender.",
+      "publico": "Para quem vai começar a vender online ou precisa organizar melhor uma operação que já existe.",
+      "entregas": [
+        "Arquitetura da loja",
+        "Organização de produtos",
+        "Design responsivo",
+        "Integração com canais de contato ou compra"
+      ],
+      "publicado": true
+    },
+    {
+      "slug": "site-institucional",
+      "titulo": "Site Institucional",
+      "icone": "i-panels",
+      "problema": "O site está desatualizado, ou a empresa ainda depende apenas das redes sociais.",
+      "descricao": "Criamos sites que apresentam a empresa, seus serviços e as formas de contato sem complicar a navegação.",
+      "publico": "Para empresas que precisam explicar bem o que fazem e ter um canal próprio para receber contatos.",
+      "entregas": [
+        "Arquitetura de conteúdo",
+        "Design responsivo",
+        "Desenvolvimento do site",
+        "Orientação para publicação"
+      ],
+      "publicado": true
+    },
+    {
+      "slug": "landing-pages",
+      "titulo": "Landing Pages",
+      "icone": "i-file-text",
+      "problema": "Uma campanha precisa de uma página própria para explicar a oferta e receber contatos.",
+      "descricao": "Desenvolvemos páginas focadas em uma única ação, como pedir orçamento, fazer cadastro ou agendar atendimento.",
+      "publico": "Para profissionais e empresas que vão lançar ou divulgar um serviço, produto, evento ou campanha específica.",
+      "entregas": [
+        "Estrutura da oferta",
+        "Texto e hierarquia da página",
+        "Design responsivo",
+        "Botões e canais de conversão"
+      ],
+      "publicado": true
+    },
+    {
+      "slug": "automacao-de-atendimento",
+      "titulo": "Automação de Atendimento",
+      "icone": "i-waypoints",
+      "problema": "A equipe perde tempo repetindo respostas e encaminhando contatos manualmente.",
+      "descricao": "Organizamos fluxos automáticos para responder dúvidas iniciais, coletar informações e encaminhar cada contato.",
+      "publico": "Para negócios que recebem muitos contatos e precisam organizar o primeiro atendimento sem aumentar o trabalho da equipe.",
+      "entregas": [
+        "Mapeamento do atendimento atual",
+        "Fluxos de perguntas e respostas",
+        "Organização de canais",
+        "Orientação de uso e acompanhamento"
+      ],
+      "publicado": true
+    },
+    {
+      "slug": "sistemas-sob-medida",
+      "titulo": "Sistemas Sob Medida",
+      "icone": "i-database",
+      "problema": "Planilhas e tarefas manuais já não acompanham a rotina da empresa.",
+      "descricao": "Desenvolvemos sistemas para reunir informações, reduzir tarefas repetitivas e facilitar o acompanhamento da operação.",
+      "publico": "Para empresas que não encontram uma ferramenta pronta que se encaixe em seus processos internos.",
+      "entregas": [
+        "Levantamento de requisitos",
+        "Arquitetura da solução",
+        "Desenvolvimento da interface",
+        "Entrega e orientação de uso"
+      ],
+      "publicado": true
+    }
+  ],
+  "home": {
+    "hero": {
+      "titulo": "Estratégia para negócios.\n*Experiência para o futuro.*",
+      "texto": "Somos a Empresa Júnior da Universidade Vila Velha. Estudantes de diferentes cursos desenvolvem sites, automações e sistemas para empresas e profissionais.",
+      "botao1": {
+        "texto": "Ver o que fazemos",
+        "destino": "#solucoes"
+      },
+      "botao2": {
+        "texto": "Conversar com a equipe",
+        "destino": "/contato/"
+      },
+      "coord1": "20°19⬲S",
+      "coord2": "40°17⬲W",
+      "cores": {}
+    },
+    "indicadores": {
+      "ativo": true,
+      "itens": [
+        {
+          "icone": "i-star",
+          "valor": "4,4",
+          "rotulo": "NPS"
+        },
+        {
+          "icone": "i-users",
+          "valor": "+231",
+          "rotulo": "Alunos impactados"
+        },
+        {
+          "icone": "i-file-text",
+          "valor": "+46",
+          "rotulo": "Projetos"
+        },
+        {
+          "icone": "i-target",
+          "valor": "48",
+          "rotulo": "Clientes"
+        }
+      ],
+      "cores": {}
+    },
+    "sobre": {
+      "ativo": true,
+      "eyebrow": "Quem somos",
+      "titulo": "Estudantes da UVV trabalhando em projetos de verdade.",
+      "texto": "Desde 2016, a EJUVV reúne estudantes de diferentes cursos para atender clientes, organizar projetos e entregar soluções digitais com orientação acadêmica.",
+      "link": {
+        "texto": "Conheça nossa história",
+        "destino": "/sobre/"
+      },
+      "imagem": "",
+      "imagemAlt": "",
+      "destaqueTitulo": "EJUVV desde 2016",
+      "destaqueTexto": "Empresa Júnior da Universidade Vila Velha",
+      "cores": {}
+    },
+    "solucoes": {
+      "ativo": true,
+      "eyebrow": "Soluções",
+      "titulo": "O que podemos\nconstruir com você.",
+      "texto": "A conversa começa pelo que não está funcionando hoje. Depois, a equipe define o escopo, os prazos e as entregas com você.",
+      "rotuloProblema": "Faz sentido quando",
+      "linkDetalhe": "Saiba mais",
+      "linkContato": "Falar com a equipe",
+      "cores": {}
+    },
+    "processo": {
+      "ativo": true,
+      "eyebrow": "Como trabalhamos",
+      "titulo": "Você acompanha o projeto do começo ao fim.",
+      "cores": {}
+    },
+    "montagem": {
+      "ativo": true,
+      "eyebrow": "Engenharia do projeto",
+      "titulo": "Antes de construir,\na gente organiza.",
+      "texto": "Entender o problema vem antes de escolher a ferramenta. Reunimos informações, definimos prioridades e só então começamos o desenvolvimento.",
+      "dica": "Role para montar",
+      "fases": [
+        "Fragmentos",
+        "Convergência",
+        "Estrutura completa",
+        "Próxima órbita"
+      ],
+      "cores": {}
+    },
+    "projetos": {
+      "ativo": true,
+      "eyebrow": "Projetos",
+      "titulo": "Trabalhos que já estão no ar.",
+      "texto": "Acesse os sites desenvolvidos pela EJUVV e veja o resultado diretamente no navegador.",
+      "linkProjeto": "Ver projeto",
+      "cores": {}
+    },
+    "blog": {
+      "ativo": false,
+      "eyebrow": "Blog",
+      "titulo": "Ideias e bastidores da EJUVV.",
+      "texto": "Artigos da equipe sobre sites, tecnologia, gestão e o dia a dia de uma empresa júnior.",
+      "botao": {
+        "texto": "Ver todos os artigos",
+        "destino": "/blog/"
+      },
+      "cores": {}
+    },
+    "clientes": {
+      "ativo": true,
+      "eyebrow": "Clientes e parceiros",
+      "titulo": "Algumas marcas que já passaram pela EJUVV.",
+      "logos": [
+        {
+          "nome": "UVV",
+          "imagem": "/assets/img/clients/logo-uvv.png",
+          "largo": false
+        },
+        {
+          "nome": "inFlux",
+          "imagem": "/assets/img/clients/logo-influx-black.png",
+          "largo": false
+        },
+        {
+          "nome": "Eureca",
+          "imagem": "/assets/img/clients/logo-eureca.png",
+          "largo": false
+        },
+        {
+          "nome": "Rede Tribuna",
+          "imagem": "/assets/img/clients/logo-rede-tribuna.png",
+          "largo": false
+        },
+        {
+          "nome": "Meu Dever de Casa",
+          "imagem": "/assets/img/clients/logo-meu-dever-de-casa.png",
+          "largo": true
+        }
+      ],
+      "cores": {}
+    },
+    "orbita": {
+      "ativo": true,
+      "eyebrow": "EJUVV Órbita",
+      "titulo": "Quer fazer parte da EJUVV?",
+      "texto": "O Órbita é a porta de entrada para estudantes da UVV. Por lá, você acompanha processos seletivos, eventos e capacitações.",
+      "botao1": {
+        "texto": "Conheça o Órbita",
+        "destino": "/orbita/"
+      },
+      "botao2": {
+        "texto": "Siga @ejuvv.orbita",
+        "destino": "https://www.instagram.com/ejuvv.orbita/"
+      },
+      "cores": {}
+    },
+    "chamada": {
+      "ativo": true,
+      "eyebrow": "Vamos conversar",
+      "titulo": "Tem um projeto em mente?",
+      "texto": "Conte o que sua empresa precisa. A equipe responde para entender o contexto e avaliar como pode ajudar.",
+      "botao": {
+        "texto": "Falar com a EJUVV",
+        "destino": "/contato/"
+      },
+      "cores": {}
+    },
+    "contato": {
+      "ativo": true,
+      "eyebrow": "Contato",
+      "titulo": "Prefere falar direto com a gente?",
+      "texto": "Envie uma mensagem pelo WhatsApp ou preencha o formulário. Os dois caminhos levam à nossa equipe comercial.",
+      "mapa": true,
+      "faq": [
+        {
+          "p": "Quais serviços a EJUVV oferece?",
+          "r": "Hoje trabalhamos com sites institucionais, landing pages, e-commerce, automação de atendimento e sistemas sob medida."
+        },
+        {
+          "p": "Como funciona o primeiro contato?",
+          "r": "Você envia as informações pelo formulário e continua a conversa no WhatsApp. A equipe lê o pedido e combina uma conversa para entender o projeto."
+        },
+        {
+          "p": "Quem pode contratar os serviços da EJUVV?",
+          "r": "Profissionais autônomos, empresas e organizações podem solicitar um orçamento."
+        },
+        {
+          "p": "Qual é o prazo médio de um projeto?",
+          "r": "Depende do tamanho e da complexidade do projeto. O prazo é informado na proposta, antes do início do trabalho."
+        },
+        {
+          "p": "Como é definido o orçamento?",
+          "r": "O valor considera o escopo, o prazo e as entregas. Tudo fica registrado na proposta comercial."
+        }
+      ],
+      "cores": {}
+    }
+  },
+  "formulario": {
+    "eyebrow": "Peça um orçamento",
+    "titulo": "Envie os dados do projeto.",
+    "botao": "Continuar no WhatsApp",
+    "portes": [
+      "Profissional autônomo",
+      "Microempresa",
+      "Pequena empresa",
+      "Outro"
+    ],
+    "sucessoTitulo": "Mensagem preparada",
+    "sucessoTexto": "O WhatsApp foi aberto com os dados do formulário. Se isso não aconteceu, fale com a gente pelo número",
+    "sucessoBotao": "Enviar outra mensagem"
+  },
+  "paginas": {
+    "sobre": {
+      "seo": {
+        "titulo": "Sobre",
+        "descricao": "Conheça a EJUVV, Empresa Júnior da Universidade Vila Velha, e veja como os estudantes trabalham em projetos para clientes."
+      },
+      "hero": {
+        "eyebrow": "Sobre a EJUVV",
+        "titulo": "Estudantes da UVV trabalhando em projetos de verdade.",
+        "texto": "A EJUVV reúne alunos de diferentes cursos para atender empresas e profissionais com orientação acadêmica e prática de mercado.",
+        "cores": {}
+      },
+      "historia": {
+        "eyebrow": "Nossa história",
+        "titulo": "Uma empresa júnior desde 2016.",
+        "texto": "Na EJUVV, estudantes de diferentes cursos participam de todas as etapas de um projeto: entendem a demanda, definem o escopo, desenvolvem a entrega e apresentam o resultado ao cliente.\n\nAs empresas contam com uma equipe acompanhada e disposta a estudar cada contexto. Os estudantes saem da sala de aula para lidar com prazos, decisões e clientes reais.",
+        "imagem": "",
+        "imagemAlt": "",
+        "destaqueTitulo": "EJUVV desde 2016",
+        "destaqueTexto": "Projetos conduzidos por estudantes da Universidade Vila Velha",
+        "cores": {}
+      },
+      "valores": {
+        "eyebrow": "Nossos valores",
+        "titulo": "Como a gente trabalha.",
+        "texto": "Eles aparecem na rotina: na forma de aprender, assumir responsabilidade e preparar quem vai continuar a EJUVV.",
+        "itens": [
+          {
+            "titulo": "Ser destemido",
+            "texto": "A gente encara o que ainda não sabe e vai atrás da resposta."
+          },
+          {
+            "titulo": "Não passar despercebido",
+            "texto": "Cuidamos do trabalho para que a entrega seja lembrada pelo que resolve."
+          },
+          {
+            "titulo": "Não ficar parado",
+            "texto": "Testamos, pedimos retorno e melhoramos o que for preciso."
+          },
+          {
+            "titulo": "Ao infinito e além",
+            "texto": "Ambição, para nós, vem acompanhada de responsabilidade."
+          },
+          {
+            "titulo": "Linhagem EJUVV",
+            "texto": "Quem entra aprende com quem veio antes e deixa caminho para quem vem depois."
+          }
+        ],
+        "cores": {}
+      },
+      "missao": {
+        "eyebrowMissao": "Missão",
+        "missao": "Formar lideranças por meio de soluções que geram valor.",
+        "eyebrowVisao": "Visão",
+        "visao": "Ser referência em desenvolvimento empreendedor e impacto para o ecossistema capixaba.",
+        "cores": {}
+      },
+      "chamada": {
+        "eyebrow": "Vamos conversar",
+        "titulo": "Tem um projeto em mente?",
+        "texto": "Conte o que sua empresa precisa. A equipe responde para entender o contexto e avaliar como pode ajudar.",
+        "botao": {
+          "texto": "Falar com a EJUVV",
+          "destino": "/contato/"
+        },
+        "cores": {}
+      }
+    },
+    "solucoes": {
+      "seo": {
+        "titulo": "Soluções",
+        "descricao": "Conheça os serviços da EJUVV em sites, landing pages, e-commerce, automação de atendimento e sistemas sob medida."
+      },
+      "hero": {
+        "eyebrow": "O que fazemos",
+        "titulo": "Sites, automações e sistemas pensados para a sua rotina.",
+        "texto": "A equipe entende o que você precisa, combina o escopo antes de começar e mantém você por perto durante o desenvolvimento.",
+        "cores": {}
+      },
+      "lista": {
+        "linkDetalhe": "Ver detalhes",
+        "linkContato": "Falar com a equipe",
+        "cores": {}
+      },
+      "processo": {
+        "eyebrow": "Como funciona",
+        "titulo": "Você acompanha o projeto do começo ao fim.",
+        "cores": {}
+      }
+    },
+    "servico": {
+      "heroEyebrow": "Serviço",
+      "detalhe": {
+        "publicoEyebrow": "Para quem é",
+        "publicoTitulo": "Este serviço pode ajudar se...",
+        "botao": "Quero falar sobre este serviço",
+        "incluidoEyebrow": "O que está incluído",
+        "incluidoTitulo": "O que entra no projeto",
+        "cores": {}
+      },
+      "processo": {
+        "eyebrow": "Como funciona",
+        "titulo": "Você acompanha o projeto do começo ao fim.",
+        "cores": {}
+      },
+      "outros": {
+        "eyebrow": "Outras soluções",
+        "titulo": "Ainda não encontrou o que procura?",
+        "botao": "Conhecer os outros serviços",
+        "cores": {}
+      }
+    },
+    "projetos": {
+      "seo": {
+        "titulo": "Projetos",
+        "descricao": "Conheça sites desenvolvidos pela EJUVV e acesse os projetos que já estão publicados."
+      },
+      "hero": {
+        "eyebrow": "Projetos",
+        "titulo": "Veja o que já colocamos no ar.",
+        "texto": "Nesta página você encontra trabalhos publicados pela EJUVV e pode acessar cada site para conferir o resultado.",
+        "cores": {}
+      },
+      "lista": {
+        "linkProjeto": "Ver projeto",
+        "todos": "Todos",
+        "busca": "Buscar projetos",
+        "vazio": "Nenhum projeto encontrado.",
+        "cores": {}
+      },
+      "projeto": {
+        "introEyebrow": "O projeto",
+        "sitesEyebrow": "Sites publicados",
+        "sitesTitulo": "Conheça cada trabalho.",
+        "linkSite": "Acessar site",
+        "galeriaEyebrow": "Registros",
+        "galeriaTitulo": "Imagens do projeto.",
+        "entregasEyebrow": "Entregas",
+        "entregasTitulo": "O que fizemos.",
+        "resultadoRotulo": "Resultado",
+        "cores": {}
+      },
+      "chamada": {
+        "eyebrow": "Projetos",
+        "titulo": "Veja outros trabalhos da EJUVV.",
+        "botao": {
+          "texto": "Voltar para projetos",
+          "destino": "/projetos/"
+        },
+        "cores": {}
+      }
+    },
+    "orbita": {
+      "seo": {
+        "titulo": "Órbita",
+        "descricao": "Conheça o Órbita, porta de entrada para estudantes da UVV que querem participar da EJUVV."
+      },
+      "hero": {
+        "eyebrow": "EJUVV Órbita",
+        "titulo": "Quer fazer parte da EJUVV?",
+        "texto": "O Órbita apresenta a empresa júnior por dentro e reúne as informações sobre nossos processos seletivos.",
+        "cores": {}
+      },
+      "intro": {
+        "eyebrow": "Por onde começar",
+        "titulo": "Conheça a EJUVV por dentro.",
+        "texto": "Pelo Órbita, você acompanha os processos seletivos, entende o trabalho de cada área e conhece as capacitações e eventos da EJUVV.",
+        "status": "No momento, não há processo seletivo aberto. As próximas datas serão divulgadas no Instagram do Órbita.",
+        "cores": {}
+      },
+      "beneficios": [
+        "Experiência real de mercado",
+        "Desenvolvimento de liderança",
+        "Networking",
+        "Capacitações",
+        "Movimento Empresa Júnior",
+        "Trabalho multidisciplinar"
+      ],
+      "areas": {
+        "eyebrow": "Áreas internas",
+        "titulo": "O que cada equipe faz.",
+        "itens": [
+          {
+            "titulo": "Projetos",
+            "texto": "Organiza o escopo, os prazos e o contato com o cliente durante as entregas."
+          },
+          {
+            "titulo": "Comercial",
+            "texto": "Conversa com potenciais clientes, entende demandas e prepara propostas."
+          },
+          {
+            "titulo": "Marketing",
+            "texto": "Cuida da comunicação da EJUVV e divulga projetos e processos seletivos."
+          },
+          {
+            "titulo": "Gente & Gestão",
+            "texto": "Acompanha os membros, recebe quem chega e organiza ações de desenvolvimento."
+          },
+          {
+            "titulo": "Administrativo-financeiro",
+            "texto": "Mantém documentos, contratos e finanças em ordem."
+          },
+          {
+            "titulo": "Presidência e estratégia",
+            "texto": "Coordena a EJUVV e acompanha metas, parcerias e decisões da gestão."
+          }
+        ],
+        "cores": {}
+      },
+      "selecao": {
+        "eyebrow": "Processo seletivo",
+        "titulo": "Como funciona a seleção.",
+        "passos": [
+          "Inscrição",
+          "Conexão com a EJUVV",
+          "Etapa de desenvolvimento",
+          "Entrevista",
+          "Resultado"
+        ],
+        "cores": {}
+      },
+      "talentos": {
+        "eyebrow": "Banco de talentos",
+        "titulo": "Quer acompanhar a próxima seleção?",
+        "texto": "Siga o Instagram do Órbita. É por lá que publicamos datas, editais e orientações para participar.",
+        "botao": {
+          "texto": "Acompanhar no Instagram",
+          "destino": "https://www.instagram.com/ejuvv.orbita/"
+        },
+        "inscricoesAbertas": false,
+        "inscricaoTexto": "Fazer inscrição",
+        "inscricaoLink": "",
+        "fechadoTexto": "Inscrições fechadas",
+        "faq": [
+          {
+            "p": "Quem pode participar?",
+            "r": "Os critérios são informados no edital de cada processo seletivo."
+          },
+          {
+            "p": "Preciso ter experiência?",
+            "r": "Isso depende do edital de cada ciclo. Leia os requisitos antes de fazer a inscrição."
+          },
+          {
+            "p": "Quando abre o próximo processo?",
+            "r": "Ainda não há uma data confirmada. A novidade será publicada no Instagram do Órbita."
+          }
+        ],
+        "cores": {}
+      }
+    },
+    "contato": {
+      "seo": {
+        "titulo": "Contato",
+        "descricao": "Fale com a EJUVV para pedir um orçamento ou tirar dúvidas sobre nossos serviços."
+      },
+      "hero": {
+        "eyebrow": "Contato e orçamento",
+        "titulo": "Conte o que você precisa.",
+        "texto": "Envie as informações do projeto pelo formulário ou fale direto com a equipe pelo WhatsApp.",
+        "cores": {}
+      },
+      "canais": {
+        "eyebrow": "Canais oficiais",
+        "titulo": "Fale com a EJUVV",
+        "texto": "Escolha o canal mais prático para você.",
+        "mapa": true,
+        "cores": {}
+      }
+    },
+    "privacidade": {
+      "seo": {
+        "titulo": "Política de Privacidade",
+        "descricao": "Como tratamos as informações enviadas por você nos canais digitais da EJUVV."
+      },
+      "hero": {
+        "eyebrow": "Transparência",
+        "titulo": "Política de Privacidade",
+        "texto": "Como tratamos as informações enviadas por você nos canais digitais da EJUVV.",
+        "cores": {}
+      },
+      "texto": {
+        "secoes": [
+          {
+            "titulo": "Dados coletados",
+            "texto": "Podemos coletar dados informados voluntariamente em formulários, como nome, empresa, e-mail, telefone, serviço de interesse e mensagem."
+          },
+          {
+            "titulo": "Finalidade",
+            "texto": "Os dados são usados para responder solicitações, entender necessidades comerciais e manter o relacionamento solicitado pelo titular."
+          },
+          {
+            "titulo": "Compartilhamento e segurança",
+            "texto": "As informações não devem ser comercializadas. O acesso deve ser limitado às pessoas responsáveis pelo atendimento e aos fornecedores necessários para operar o serviço."
+          },
+          {
+            "titulo": "Direitos do titular",
+            "texto": "Você pode solicitar confirmação, acesso, correção ou exclusão de dados pessoais pelos canais oficiais de contato."
+          },
+          {
+            "titulo": "Contato",
+            "texto": "Dúvidas sobre privacidade podem ser encaminhadas para [comercial@ejuvv.com](mailto:comercial@ejuvv.com)."
+          }
+        ],
+        "cores": {}
+      }
+    },
+    "termos": {
+      "seo": {
+        "titulo": "Termos de Uso",
+        "descricao": "Condições gerais para navegação e uso dos conteúdos deste site."
+      },
+      "hero": {
+        "eyebrow": "Transparência",
+        "titulo": "Termos de Uso",
+        "texto": "Condições gerais para navegação e uso dos conteúdos deste site.",
+        "cores": {}
+      },
+      "texto": {
+        "secoes": [
+          {
+            "titulo": "Uso do conteúdo",
+            "texto": "Os conteúdos deste site têm caráter institucional e informativo. Escopos, prazos e condições comerciais são definidos exclusivamente em proposta formal."
+          },
+          {
+            "titulo": "Atualizações",
+            "texto": "Informações sobre serviços, projetos e processos seletivos podem ser atualizadas para refletir a atuação vigente da EJUVV."
+          },
+          {
+            "titulo": "Contato",
+            "texto": "Em caso de dúvidas, utilize os canais oficiais apresentados na página de contato."
+          }
+        ],
+        "cores": {}
+      }
+    },
+    "naoEncontrada": {
+      "eyebrow": "Erro 404",
+      "titulo": "Página não encontrada.",
+      "texto": "O endereço pode ter mudado ou a página saiu do ar. Volte ao início ou fale com a gente.",
+      "botao": {
+        "texto": "Voltar ao início",
+        "destino": "/"
+      }
+    }
+  },
+  "rodape": {
+    "tituloNavegue": "Navegue",
+    "navegue": [
+      {
+        "rotulo": "Sobre",
+        "destino": "/sobre/"
+      },
+      {
+        "rotulo": "Soluções",
+        "destino": "/solucoes/"
+      },
+      {
+        "rotulo": "Projetos",
+        "destino": "/projetos/"
+      },
+      {
+        "rotulo": "Blog",
+        "destino": "/blog/"
+      },
+      {
+        "rotulo": "Órbita",
+        "destino": "/orbita/"
+      }
+    ],
+    "tituloContato": "Contato",
+    "tituloTransparencia": "Transparência",
+    "transparencia": [
+      {
+        "rotulo": "Política de Privacidade",
+        "destino": "/politica-de-privacidade/"
+      },
+      {
+        "rotulo": "Termos de Uso",
+        "destino": "/termos-de-uso/"
+      },
+      {
+        "rotulo": "Instagram",
+        "destino": "https://instagram.com/ejuvv"
+      }
+    ],
+    "direitos": "EJUVV. Todos os direitos reservados.",
+    "linhaDireita": "Universidade Vila Velha",
+    "cores": {}
+  },
+  "efeitos": {}
+}

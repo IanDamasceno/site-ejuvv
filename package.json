@@ -1,0 +1,15 @@
+{
+  "name": "ejuvv-site",
+  "private": true,
+  "description": "Site institucional da EJUVV. Todas as páginas são montadas a partir do conteúdo editado no painel (pasta painel/).",
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

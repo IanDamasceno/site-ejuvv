@@ -1,0 +1,14 @@
+node_modules/
+.vercel/
+
+# Credenciais e configuração de ambiente (senha e segredo de teste do painel,
+# e o modelo .env.example). Nenhum arquivo .env vai para o Git, em nenhuma pasta;
+# quem for rodar localmente recebe por fora ou cria o seu (veja COMO-RODAR.md).
+.env
+.env.*
+
+# Conteúdo salvo pelo painel no computador (inclui o hash da senha do painel).
+.cms-local/
+
+# Cópia do site antes do painel.
+.backup/

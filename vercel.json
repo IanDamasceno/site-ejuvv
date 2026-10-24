@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/*.js": { "includeFiles": "data/*.json" }
+  },
+  "rewrites": [
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/", "destination": "/api/render?rota=" },
+    { "source": "/:rota*", "destination": "/api/render?rota=:rota*" }
+  ],
+  "headers": [
+    { "source": "/data/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] }
+  ]
+}

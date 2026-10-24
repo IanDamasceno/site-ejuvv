@@ -1,0 +1,194 @@
+/* ==========================================================================
+   EJUVV — recursos do painel: cores por seção, efeitos escolhidos na aba
+   Efeitos, foto de destaque, galeria, filtros de projetos e caminho de
+   navegação. Sem nada publicado no painel, nada aqui muda o visual do site.
+   ========================================================================== */
+
+/* ---------- Cores por seção ----------
+   O servidor escreve data-c-<elemento> e --k-<elemento> só nas seções em que
+   alguém escolheu uma cor. Os cards de dentro mantêm as próprias cores, para
+   o texto continuar legível sobre o fundo claro deles. */
+:is(section, footer)[data-c-fundo] { background: var(--k-fundo) !important; }
+
+:is(section, footer)[data-c-titulo] :is(h1, h2, h3):not(:is(.service-card, .project-card, .numbered-card, .form-card, .case-site-card, .blog-card, .blog-feature) *) {
+  color: var(--k-titulo) !important;
+}
+:is(section, footer)[data-c-destaque] :is(h1, h2, h3, p, li) :is(em, strong):not(:is(.service-card, .project-card, .numbered-card, .form-card, .case-site-card, .blog-card, .blog-feature) *) {
+  color: var(--k-destaque) !important;
+}
+:is(section, footer)[data-c-texto] :is(p, li, .lead, .contact-row a, .contact-row span, .footer-col a, .footer-col span, .footer-bottom span):not(:is(.service-card, .project-card, .numbered-card, .form-card, .case-site-card, .blog-card, .blog-feature) *) {
+  color: var(--k-texto) !important;
+}
+:is(section, footer)[data-c-apoio] :is(.eyebrow, .card-num, .t-step span, .footer-col h3, .stat span, .stat svg, .status-note, .breadcrumb, .breadcrumb a, .value-card b, .numbered-card b, .deliverables b):not(:is(.service-card, .project-card, .form-card, .case-site-card, .blog-card, .blog-feature) *) {
+  color: var(--k-apoio) !important;
+}
+:is(section, footer)[data-c-botao] :is(.btn-primary, .btn-light) {
+  background: var(--k-botao) !important;
+  border-color: var(--k-botao) !important;
+  box-shadow: none;
+}
+:is(section, footer)[data-c-botao] .text-link:not(:is(.service-card, .project-card, .case-site-card, .blog-card) *) { color: var(--k-botao) !important; }
+:is(section, footer)[data-c-botao] .text-link::after { background: currentColor; }
+:is(section, footer)[data-c-botao-texto] :is(.btn-primary, .btn-light, .btn-secondary, .btn-ghost, .btn-outline) { color: var(--k-botao-texto) !important; }
+
+/* ---------- Foto no lugar do bloco de destaque ---------- */
+.media-photo {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-warm);
+  box-shadow: 0 30px 70px rgba(53, 20, 61, 0.14);
+}
+.media-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Caminho de navegação (Configurações → mostrar caminho) ---------- */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin-bottom: 26px;
+  font-size: 0.8125rem;
+  color: var(--on-dark-faint);
+}
+.breadcrumb a { color: var(--on-dark-soft); transition: color var(--dur-fast) var(--ease-out); }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb [aria-current] {
+  max-width: 42ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Galeria dos projetos ---------- */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+.galeria-item {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-warm);
+}
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-out);
+}
+.galeria-item:hover img { transform: scale(1.04); }
+
+.lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: clamp(16px, 4vw, 56px);
+  border: 0;
+  background: rgba(10, 7, 20, 0.94);
+  color: #fff;
+}
+.lightbox[open] { display: grid; place-items: center; }
+.lightbox::backdrop { background: transparent; }
+.lightbox figure { margin: 0; display: grid; gap: 14px; justify-items: center; max-width: 100%; }
+.lightbox img {
+  max-width: min(1200px, 100%);
+  max-height: calc(100dvh - 150px);
+  object-fit: contain;
+  border-radius: 10px;
+}
+.lightbox figcaption { font-size: 0.875rem; color: var(--on-dark-soft); text-align: center; max-width: 70ch; }
+.lightbox button {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.lightbox button:hover { background: rgba(255, 255, 255, 0.2); }
+.lightbox button svg { width: 22px; height: 22px; }
+.lightbox-fechar { top: 18px; right: 18px; }
+.lightbox-ant { left: 18px; top: 50%; transform: translateY(-50%); }
+.lightbox-prox { right: 18px; top: 50%; transform: translateY(-50%); }
+.lightbox.sozinha :is(.lightbox-ant, .lightbox-prox) { display: none; }
+.lightbox-conta { position: fixed; top: 30px; left: 24px; font-size: 0.8125rem; color: var(--on-dark-soft); }
+
+/* ---------- Filtros da página de projetos ---------- */
+.projetos-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-bottom: 34px;
+}
+.projetos-filtros .blog-search { margin-left: auto; }
+#projetos-vazio { margin-top: 10px; }
+
+/* ---------- Formulário sem WhatsApp configurado ---------- */
+.form-aviso { margin-top: 14px; font-size: 0.875rem; line-height: 1.55; color: var(--ink-soft); text-align: center; }
+
+/* ---------- Página 404 ---------- */
+.page-404 { min-height: 78vh; display: flex; align-items: center; }
+
+/* ---------- Efeitos: cards ao passar o mouse ---------- */
+[data-fx-cards='nenhum'] :is(.service-card, .project-card, .value-card, .numbered-card, .case-site-card, .blog-card, .blog-feature):hover {
+  transform: none;
+  box-shadow: none;
+}
+[data-fx-cards='nenhum'] :is(.project-card, .case-site-card, .blog-card, .blog-feature):hover img { transform: none; }
+
+[data-fx-cards='inclinar'] :is(.service-card, .project-card, .value-card, .numbered-card, .case-site-card, .blog-card, .blog-feature) {
+  transition: transform 0.45s var(--ease-out), box-shadow var(--dur) var(--ease-out);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+[data-fx-cards='brilho'] :is(.service-card, .project-card, .value-card, .numbered-card, .case-site-card, .blog-card, .blog-feature):hover {
+  transform: translateY(-3px);
+  background-image: radial-gradient(320px circle at var(--fx-x, 50%) var(--fx-y, 50%), rgba(128, 103, 255, 0.16), transparent 70%);
+}
+[data-fx-cards='brilho'] .on-dark :is(.value-card, .service-card):hover {
+  background-image: radial-gradient(320px circle at var(--fx-x, 50%) var(--fx-y, 50%), rgba(255, 255, 255, 0.14), transparent 70%);
+}
+
+/* ---------- Efeitos: faixa de logos e símbolo ---------- */
+[data-fx-logos='lenta'] .marquee-track { animation-duration: 52s; }
+[data-fx-logos='rapida'] .marquee-track { animation-duration: 20s; }
+[data-fx-logos='parada'] .marquee-track { animation: none; }
+[data-fx-logos='parada'] .marquee { -webkit-mask-image: none; mask-image: none; }
+[data-fx-logos='parada'] .logo-group[aria-hidden='true'] { display: none; }
+[data-fx-logos='parada'] .marquee-track { width: auto; justify-content: center; flex-wrap: wrap; }
+[data-fx-logos='parada'] .logo-group { flex-wrap: wrap; justify-content: center; padding: 0 var(--gutter); }
+
+[data-fx-marca='parado'] .brand-mark { animation: none; }
+
+/* ---------- Prévia de efeitos aberta pelo painel ---------- */
+#fx-previa {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 300;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  border-radius: 100px;
+  background: #8067ff;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(10, 7, 20, 0.35);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galeria-item:hover img { transform: none; }
+}

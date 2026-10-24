@@ -1,0 +1,50 @@
+{
+  "projetos": [
+    {
+      "slug": "sites-profissionais-saude",
+      "titulo": "Sites para três profissionais da saúde",
+      "categoria": "Sites e landing pages",
+      "selo": "3 sites publicados",
+      "desafio": "Três profissionais da saúde precisavam apresentar seu trabalho na internet e facilitar o agendamento de consultas e avaliações.",
+      "resumoHome": "Três profissionais precisavam apresentar seu trabalho na internet e facilitar o agendamento de consultas e avaliações.",
+      "introTitulo": "Três profissionais, três sites feitos de acordo com cada atendimento.",
+      "solucao": "Criamos um site para cada profissional. A estrutura foi adaptada ao conteúdo e à identidade de cada um, com informações de atendimento e acesso direto aos canais de agendamento.",
+      "entregas": [
+        "Identidade visual própria para cada site",
+        "Organização dos textos e informações profissionais",
+        "Botões de contato e agendamento",
+        "Adaptação para celular, tablet e computador",
+        "Publicação dos três sites"
+      ],
+      "resultado": "Os três sites estão publicados e podem ser acessados pelos links abaixo.",
+      "capa": "",
+      "capaAlt": "",
+      "galeria": [],
+      "sites": [
+        {
+          "nome": "Dra. Karoliny Brum",
+          "especialidade": "Estética avançada",
+          "url": "https://drakarolinybrum.com/",
+          "imagem": "/assets/img/projects/site-karoliny-brum-home.png",
+          "nota": "A página apresenta a profissional, reúne os procedimentos e leva o visitante ao agendamento pelo WhatsApp."
+        },
+        {
+          "nome": "Eduarda do Nascimento Manzoli",
+          "especialidade": "Psicologia e psicanálise",
+          "url": "https://eduardamanzolipsi.com.br/",
+          "imagem": "/assets/img/projects/site-eduarda-nascimento-home.png",
+          "nota": "O site organiza a abordagem clínica, a apresentação da profissional e as informações de atendimento em uma leitura tranquila."
+        },
+        {
+          "nome": "Dr. Pedro Calegari",
+          "especialidade": "Ortopedia e traumatologia",
+          "url": "https://drpedrocalegari.com.br/",
+          "imagem": "/assets/img/projects/site-pedro-calegari-home.png",
+          "nota": "A página destaca formação, áreas de atuação e as formas de marcar uma consulta."
+        }
+      ],
+      "destaque": true,
+      "publicado": true
+    }
+  ]
+}
