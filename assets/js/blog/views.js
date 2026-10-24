@@ -175,7 +175,7 @@ export function seoPost(p, categorias = []) {
   const descricao = descricaoPost(p);
   const url = SITE + urlPost(p.slug);
   const src = imagemSegura(p.capa);
-  const imagem = /^https:\/\//.test(src) ? src : src.startsWith('/') ? SITE + src : `${SITE}/og.png`;
+  const imagem = src.startsWith('https://') ? src : src.startsWith('/') ? SITE + src : `${SITE}/og.png`;
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -194,6 +194,7 @@ export function seoPost(p, categorias = []) {
     descricao,
     url,
     imagem,
-    jsonLd: JSON.stringify(ld).replace(/</g, '\\u003c'),
+    // Escapa < > & e as quebras de linha especiais: o texto nunca fecha a tag <script>.
+    jsonLd: JSON.stringify(ld).replace(/[<>&\u2028\u2029]/g, (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`),
   };
 }

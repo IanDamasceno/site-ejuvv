@@ -2,6 +2,7 @@
 // Cada página é montada com o conteúdo publicado no painel e fica 10 s em cache na borda,
 // então o que é salvo no painel aparece no site em poucos segundos, sem novo deploy.
 import {PUBLIC_CACHE} from './_store.js';
+import {politicaSeguranca} from './_render/shell.js';
 import {carregar} from './_render/dados.js';
 import {renderHome} from './_render/home.js';
 import {renderSobre, renderSolucoes, renderServico, renderProjetos, renderProjeto, renderOrbita, renderContato, renderLegal, renderNaoEncontrada} from './_render/paginas.js';
@@ -34,6 +35,8 @@ export default async function handler(req, res) {
   // O rewrite manda o caminho original em ?rota=; em desenvolvimento, chega o próprio caminho.
   const viaRewrite = url.searchParams.has('rota');
   let caminho = viaRewrite ? '/' + (url.searchParams.get('rota') || '').replace(/^\/+|\/+$/g, '') : url.pathname;
+  // Barras repetidas no início viram uma só: um endereço como //outro-site.com nunca vira redirecionamento externo.
+  caminho = '/' + caminho.replace(/^[\/\\]+/, '');
   url.searchParams.delete('rota');
   const busca = url.searchParams.toString();
 
@@ -48,7 +51,7 @@ export default async function handler(req, res) {
   if (!caminho.endsWith('/') && !/\.[a-z0-9]{2,5}$/i.test(caminho)) {
     if (!viaRewrite) {
       res.statusCode = 308;
-      res.setHeader('Location', `${caminho}/${busca ? `?${busca}` : ''}`);
+      res.setHeader('Location', encodeURI(`${caminho}/`).replace(/%25/g, '%') + (busca ? `?${busca}` : ''));
       return res.end();
     }
     caminho += '/';
@@ -60,6 +63,7 @@ export default async function handler(req, res) {
     const r = rotear(caminho, dados) || {status: 404, html: renderNaoEncontrada(dados.C, caminho)};
     res.statusCode = r.status;
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('Content-Security-Policy', politicaSeguranca());
     for (const [k, v] of Object.entries(PUBLIC_CACHE)) res.setHeader(k, v);
     return res.end(req.method === 'HEAD' ? undefined : r.html);
   } catch (erro) {

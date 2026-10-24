@@ -132,6 +132,10 @@ Nada aqui foi publicado. Quando for colocar no ar:
    solução, um projeto, `/blog/`, `/sitemap.xml` e um endereço inexistente, que
    deve mostrar a página 404).
 
+## Segurança
+
+As proteções do site, a triagem do scan do GitGuard e as configurações recomendadas na Vercel e no GitHub estão em [SEGURANCA.md](SEGURANCA.md).
+
 ## A narrativa do foguete
 
 O sistema de movimento está documentado em detalhe em

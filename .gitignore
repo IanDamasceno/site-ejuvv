@@ -12,3 +12,5 @@ node_modules/
 
 # Cópia do site antes do painel.
 .backup/
+CLAUDE.md
+graphify-out/

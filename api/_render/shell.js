@@ -1,11 +1,40 @@
 // Esqueleto comum de todas as páginas: head, cabeçalho, menu do celular, rodapé e scripts.
+import crypto from 'node:crypto';
 import {esc, icon, txt, destino, alvo, numeroWhatsapp, telefoneTexto, secao, imagemSegura} from './fmt.js';
 import {limparEfeitos} from '../../assets/js/motion/efeitos.js';
 
 export const SITE = 'https://ejuvv.com';
 // Muda a cada versão dos arquivos de estilo e script, para o navegador não usar cópias antigas.
-const V = '20261023';
+const V = '20261024';
 const v = u => `${u}?v=${V}`;
+
+/* ---------------- Scripts embutidos e Content-Security-Policy ----------------
+   Só rodam scripts do próprio site e estes pequenos scripts embutidos, liberados pela
+   impressão digital (hash) exata. Qualquer outro script colado numa página não roda. */
+export const SCRIPT_JS = "document.documentElement.classList.add('js')";
+export const SCRIPT_ANO = "document.getElementById('year').textContent = new Date().getFullYear()";
+export const SCRIPT_BLOG = "/^\\/blog\\/[a-z0-9-]+\\/?$/.test(location.pathname)&&document.documentElement.classList.add('blog-is-post')";
+const hash = s => `'sha256-${crypto.createHash('sha256').update(s, 'utf8').digest('base64')}'`;
+const MAPAS = 'https://www.openstreetmap.org https://www.google.com https://maps.google.com';
+
+/** Cabeçalho CSP das páginas. Em desenvolvimento, aceita as imagens servidas pelo painel local. */
+export function politicaSeguranca() {
+  const dev = !process.env.VERCEL;
+  return [
+    "default-src 'self'",
+    `script-src 'self' ${[SCRIPT_JS, SCRIPT_ANO, SCRIPT_BLOG].map(hash).join(' ')}`,
+    "style-src 'self' 'unsafe-inline'",
+    `img-src 'self' data: https:${dev ? ' http://localhost:*' : ''}`,
+    "font-src 'self'",
+    "connect-src 'self'",
+    `frame-src ${MAPAS}`,
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    ...(dev ? [] : ['upgrade-insecure-requests']),
+  ].join('; ');
+}
 
 /** A seção do menu marcada como atual: o item cujo endereço é o início da página. */
 function itemAtual(menu, url) {
@@ -137,7 +166,7 @@ ${robots ? `<meta name="robots" content="${robots}">\n` : ''}<link rel="canonica
 <link rel="stylesheet" href="${v('/assets/css/motion.css')}">
 <link rel="stylesheet" href="${v('/assets/css/cms.css')}">
 <link rel="modulepreload" href="/assets/js/vendor/anime.esm.min.js">
-<script>document.documentElement.classList.add('js')</script>${head}
+<script>${SCRIPT_JS}</script>${head}
 </head>
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
@@ -170,7 +199,7 @@ ${envolver}
 
 ${rodape(C)}
 
-<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+<script>${SCRIPT_ANO}</script>
 ${scripts.map(src => `<script type="module" src="${v(src)}"></script>`).join('\n')}
 </body>
 </html>

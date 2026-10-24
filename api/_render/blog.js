@@ -1,14 +1,14 @@
 // Blog: /blog/ (lista, desenhada no navegador por assets/js/pages/blog.js) e
 // /blog/<slug>/ (artigo já renderizado aqui, com título, descrição e imagem próprios).
 import {esc, icon} from './fmt.js';
-import {pagina} from './shell.js';
+import {pagina, SCRIPT_BLOG} from './shell.js';
 import {montarPost} from '../../assets/js/blog/posts.js';
 import {viewCabecalho, viewChamada, viewPost, viewNaoEncontrado, seoPost} from '../../assets/js/blog/views.js';
 
 const HEAD = `
 <link rel="stylesheet" href="/assets/css/blog.css?v=20261023">
 <link rel="alternate" type="application/json" href="/api/blog" title="Artigos do blog da EJUVV">
-<script>/^\\/blog\\/[a-z0-9-]+\\/?$/.test(location.pathname)&&document.documentElement.classList.add('blog-is-post')</script>`;
+<script>${SCRIPT_BLOG}</script>`;
 
 const SCRIPTS = ['/assets/js/pages/inner.js', '/assets/js/pages/blog.js'];
 

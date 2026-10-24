@@ -89,7 +89,10 @@ export function mesclar(padrao, publicado) {
   if (padrao && typeof padrao === 'object') {
     const out = {...padrao};
     if (publicado && typeof publicado === 'object' && !Array.isArray(publicado)) {
-      for (const [k, v] of Object.entries(publicado)) out[k] = k in padrao ? mesclar(padrao[k], v) : v;
+      for (const [k, v] of Object.entries(publicado)) {
+        if (k === '__proto__' || k === 'constructor' || k === 'prototype') continue;
+        out[k] = Object.hasOwn(padrao, k) ? mesclar(padrao[k], v) : v;
+      }
     }
     return out;
   }

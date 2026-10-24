@@ -92,9 +92,14 @@ export function contatos(C) {
   ].join('\n');
 }
 
+const HOSTS_MAPA = new Set(['openstreetmap.org', 'www.openstreetmap.org', 'google.com', 'www.google.com', 'maps.google.com']);
+const mapaPermitido = v => {
+  try { const u = new URL(String(v || '')); return u.protocol === 'https:' && HOSTS_MAPA.has(u.hostname); } catch { return false; }
+};
+
 export function mapa(C, estilo) {
   const M = C.geral.mapa || {};
-  const embed = /^https:\/\/(www\.)?(openstreetmap\.org|google\.com|maps\.google\.com)\//.test(M.embed || '') ? M.embed : '';
+  const embed = mapaPermitido(M.embed) ? M.embed : '';
   if (!embed) return '';
   const link = destino(M.link);
   return `

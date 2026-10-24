@@ -41,8 +41,8 @@ O painel lê a senha do arquivo `.env.local`, na pasta do painel (`ejuvv-cms`). 
    SITE_URL=https://ejuvv.com
    ```
 2. Preencha:
-   - `ADMIN_PASSWORD=` a senha que você quiser (8 caracteres ou mais);
-   - `SESSION_SECRET=` um texto aleatório longo. Para gerar um, rode no terminal:
+   - `ADMIN_PASSWORD=` a senha de teste que você quiser;
+   - `SESSION_SECRET=` um texto aleatório longo (16 caracteres ou mais). Pode ficar vazio no computador: o painel gera um a cada vez que liga (e o login cai quando ele reinicia). Para gerar um, rode no terminal:
      ```
      node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
      ```
@@ -78,8 +78,9 @@ O que você publicar no painel aparece no site local na hora: basta recarregar a
 - **Abrir os arquivos `.html` direto (clicando duas vezes) não funciona.** As páginas são montadas pelo servidor do passo 4.
 - **O conteúdo editado fica no seu computador**, na pasta `.cms-local/` dentro da pasta do painel. Para voltar ao site original, feche os servidores e apague essa pasta. Para mostrar suas alterações a outra pessoa, envie essa pasta junto.
 - **Pastas com outros nomes:** o site procura o painel nas pastas irmãs `ejuvv-cms` ou `ejuvv-admin`. Com outro nome, ligue o site informando o caminho, por exemplo `LOCAL_STORE=../meu-painel/.cms-local node dev-server.js` (no PowerShell: `$env:LOCAL_STORE='../meu-painel/.cms-local'; node dev-server.js`).
-- **Trocar a senha:** dentro do painel, em Configurações. Depois da troca, a senha do `.env.local` deixa de valer. Se esquecer a nova, apague a pasta `.cms-local/cms/acesso` (na pasta do painel) e entre de novo com a do `.env.local`.
+- **Trocar a senha:** dentro do painel, em Configurações (a nova precisa ter 10 caracteres ou mais). Depois da troca, a senha do `.env.local` deixa de valer e as outras sessões abertas caem. Se esquecer a nova, apague a pasta `.cms-local/cms/acesso` (na pasta do painel) e entre de novo com a do `.env.local`.
 - **Porta ocupada** (erro `EADDRINUSE`): já existe um servidor ligado nessa porta, provavelmente em outro terminal. Feche-o ou use o que já está aberto.
+- **Os servidores só atendem o próprio computador.** Outras pessoas na mesma rede não conseguem abrir o site nem o painel locais.
 - **Nada aqui publica o site.** A publicação na Vercel é um passo separado, descrito no `README.md` do site (seção “Publicar”).
 
 Mais detalhes em `README.md` (site) e no `README.md` do repositório do painel.
