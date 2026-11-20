@@ -22,7 +22,7 @@
     "migalhas": false,
     "seo": {
       "titulo": "EJUVV | Estratégia para negócios",
-      "descricao": "Empresa Júnior da Universidade Vila Velha. Projetos de sites, e-commerce, automação de atendimento e sistemas sob medida.",
+      "descricao": "Empresa Júnior da Universidade Vila Velha. Projetos de landing pages, sites institucionais, sistemas personalizados e tráfego pago.",
       "compartilharTitulo": "EJUVV. Estratégia para negócios. Experiência para o futuro.",
       "compartilharDescricao": "Conheça os serviços e projetos desenvolvidos por estudantes da Universidade Vila Velha.",
       "imagem": "/og.png"
@@ -79,17 +79,17 @@
   },
   "servicos": [
     {
-      "slug": "e-commerce",
-      "titulo": "E-commerce",
-      "icone": "i-panels",
-      "problema": "A empresa quer vender pela internet, mas ainda não tem uma loja simples de usar.",
-      "descricao": "Planejamos e desenvolvemos lojas virtuais responsivas, com produtos bem organizados e um caminho de compra fácil de entender.",
-      "publico": "Para quem vai começar a vender online ou precisa organizar melhor uma operação que já existe.",
+      "slug": "landing-page",
+      "titulo": "Landing Page",
+      "icone": "i-target",
+      "problema": "Você precisa transformar o interesse de uma campanha em contatos e oportunidades reais.",
+      "descricao": "Criamos páginas objetivas e persuasivas, pensadas para apresentar uma oferta e conduzir o visitante até a conversão.",
+      "publico": "Para campanhas, lançamentos, eventos e serviços que precisam de uma página focada em resultado.",
       "entregas": [
-        "Arquitetura da loja",
-        "Organização de produtos",
+        "Estratégia de conversão",
+        "Copy e hierarquia visual",
         "Design responsivo",
-        "Integração com canais de contato ou compra"
+        "Integração com formulários"
       ],
       "publicado": true
     },
@@ -109,47 +109,32 @@
       "publicado": true
     },
     {
-      "slug": "landing-pages",
-      "titulo": "Landing Pages",
-      "icone": "i-file-text",
-      "problema": "Uma campanha precisa de uma página própria para explicar a oferta e receber contatos.",
-      "descricao": "Desenvolvemos páginas focadas em uma única ação, como pedir orçamento, fazer cadastro ou agendar atendimento.",
-      "publico": "Para profissionais e empresas que vão lançar ou divulgar um serviço, produto, evento ou campanha específica.",
-      "entregas": [
-        "Estrutura da oferta",
-        "Texto e hierarquia da página",
-        "Design responsivo",
-        "Botões e canais de conversão"
-      ],
-      "publicado": true
-    },
-    {
-      "slug": "automacao-de-atendimento",
-      "titulo": "Automação de Atendimento",
-      "icone": "i-waypoints",
-      "problema": "A equipe perde tempo repetindo respostas e encaminhando contatos manualmente.",
-      "descricao": "Organizamos fluxos automáticos para responder dúvidas iniciais, coletar informações e encaminhar cada contato.",
-      "publico": "Para negócios que recebem muitos contatos e precisam organizar o primeiro atendimento sem aumentar o trabalho da equipe.",
-      "entregas": [
-        "Mapeamento do atendimento atual",
-        "Fluxos de perguntas e respostas",
-        "Organização de canais",
-        "Orientação de uso e acompanhamento"
-      ],
-      "publicado": true
-    },
-    {
-      "slug": "sistemas-sob-medida",
-      "titulo": "Sistemas Sob Medida",
+      "slug": "sistemas-personalizados",
+      "titulo": "Sistemas Personalizados",
       "icone": "i-database",
-      "problema": "Planilhas e tarefas manuais já não acompanham a rotina da empresa.",
-      "descricao": "Desenvolvemos sistemas para reunir informações, reduzir tarefas repetitivas e facilitar o acompanhamento da operação.",
-      "publico": "Para empresas que não encontram uma ferramenta pronta que se encaixe em seus processos internos.",
+      "problema": "Planilhas, retrabalho e ferramentas genéricas já não acompanham a rotina da empresa.",
+      "descricao": "Desenvolvemos sistemas sob medida para organizar informações, automatizar tarefas e dar mais controle à operação.",
+      "publico": "Para empresas que precisam digitalizar um processo específico e não encontram uma ferramenta pronta que se encaixe.",
       "entregas": [
-        "Levantamento de requisitos",
-        "Arquitetura da solução",
-        "Desenvolvimento da interface",
-        "Entrega e orientação de uso"
+        "Mapeamento de processos",
+        "Interface personalizada",
+        "Automações e integrações",
+        "Orientação de uso"
+      ],
+      "publicado": true
+    },
+    {
+      "slug": "trafego-pago",
+      "titulo": "Tráfego Pago",
+      "icone": "i-chart",
+      "problema": "Sua empresa precisa chegar ao público certo e transformar investimento em visitas, contatos e vendas.",
+      "descricao": "Planejamos, configuramos e acompanhamos campanhas digitais com foco em alcance qualificado, aprendizado e melhoria contínua.",
+      "publico": "Para negócios que querem ganhar visibilidade, validar ofertas ou acelerar a geração de oportunidades.",
+      "entregas": [
+        "Planejamento de campanhas",
+        "Segmentação de público",
+        "Criação e configuração de anúncios",
+        "Acompanhamento de resultados"
       ],
       "publicado": true
     }
@@ -157,7 +142,7 @@
   "home": {
     "hero": {
       "titulo": "Estratégia para negócios.\n*Experiência para o futuro.*",
-      "texto": "Somos a Empresa Júnior da Universidade Vila Velha. Estudantes de diferentes cursos desenvolvem sites, automações e sistemas para empresas e profissionais.",
+      "texto": "Somos a Empresa Júnior da Universidade Vila Velha. Estudantes de diferentes cursos desenvolvem landing pages, sites, sistemas personalizados e campanhas digitais.",
       "botao1": {
         "texto": "Ver o que fazemos",
         "destino": "#solucoes"
@@ -435,11 +420,11 @@
     "solucoes": {
       "seo": {
         "titulo": "Soluções",
-        "descricao": "Conheça os serviços da EJUVV em sites, landing pages, e-commerce, automação de atendimento e sistemas sob medida."
+        "descricao": "Conheça os serviços da EJUVV em landing pages, sites institucionais, sistemas personalizados e tráfego pago."
       },
       "hero": {
         "eyebrow": "O que fazemos",
-        "titulo": "Sites, automações e sistemas pensados para a sua rotina.",
+        "titulo": "Presença digital e tecnologia pensadas para o seu negócio.",
         "texto": "A equipe entende o que você precisa, combina o escopo antes de começar e mantém você por perto durante o desenvolvimento.",
         "cores": {}
       },

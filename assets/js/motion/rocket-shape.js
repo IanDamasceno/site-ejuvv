@@ -1,11 +1,11 @@
 /**
- * Silhueta do foguete → nuvem de fragmentos.
+ * Silhueta de um planeta com anéis → nuvem de fragmentos.
  *
- * A forma não é desenhada: ela é AMOSTRADA. Cada parte do foguete é
- * rasterizada num canvas fora da tela, em espaço lógico (200 × 320), e os
+ * A forma não é desenhada: ela é AMOSTRADA. Cada parte do planeta é
+ * rasterizada num canvas fora da tela, em espaço lógico (320 × 240), e os
  * fragmentos nascem dos pixels dessa rasterização — densos no contorno, onde
  * a silhueta precisa ser legível, esparsos no interior, onde ela precisa
- * apenas ter massa. Nenhum desenho do foguete existe em runtime: o que o
+ * apenas ter massa. Nenhum desenho do planeta existe em runtime: o que o
  * usuário vê montado é literalmente a distribuição das peças.
  *
  * Amostrar em vez de posicionar à mão tem duas consequências práticas:
@@ -22,7 +22,7 @@
  * Espaço lógico da silhueta. `cx`/`cy` é o ponto que fica no centro do palco:
  * o meio da forma desenhada (y de 6 a 280), não o meio da caixa.
  */
-export const SHAPE = { w: 200, h: 320, cx: 100, cy: 145 };
+export const SHAPE = { w: 320, h: 240, cx: 160, cy: 130 };
 
 /** Supersampling da rasterização: 2× dá antialiasing bom por ~256 KB. */
 const RES = 2;
@@ -46,81 +46,56 @@ function mulberry32(seed) {
 /* ------------------------------------------------------------- a geometria */
 
 /*
- * Coordenadas em espaço lógico. O nariz aponta para cima (y menor).
- * `cut` remove área antes da amostragem — é assim que a janela abre um buraco
- * no corpo em vez de empilhar fragmentos por cima dele. `clip` restringe a
- * parte à área de outra: as faixas são retângulos retos que só existem onde
- * o corpo (de laterais curvas) existe.
+ * Coordenadas em espaço lógico. O anel traseiro fica atrás da esfera e o
+ * arco inferior volta à frente, criando profundidade sem usar uma imagem.
+ * `cut` remove área antes da amostragem — é assim que faixas e tempestade
+ * ganham espaço limpo na esfera. `clip` restringe uma parte à área de outra.
  */
 
-const D_NOSE = 'M100 6 C 112 28 123 58 129 92 L 71 92 C 77 58 88 28 100 6 Z';
-const D_BODY = 'M71 92 L129 92 C 133 128 135 176 135 216 L 65 216 C 65 176 67 128 71 92 Z';
-const D_GLASS = 'M119 134 A 19 19 0 1 0 81 134 A 19 19 0 1 0 119 134 Z';
-const D_RING = 'M125 134 A 25 25 0 1 0 75 134 A 25 25 0 1 0 125 134 Z';
-const D_BAND_A = 'M60 98 L140 98 L140 105 L60 105 Z';
-const D_BAND_B = 'M60 192 L140 192 L140 201 L60 201 Z';
-const D_FIN_L = 'M65 178 C 51 200 39 232 34 268 L 65 246 Z';
-const D_FIN_R = 'M135 178 C 149 200 161 232 166 268 L 135 246 Z';
-const D_SKIRT = 'M65 216 L135 216 L127 252 L73 252 Z';
-const D_NOZZLE_L = 'M76 252 L89 252 L86 274 L77 274 Z';
-const D_NOZZLE_C = 'M93 252 L107 252 L106 280 L94 280 Z';
-const D_NOZZLE_R = 'M111 252 L124 252 L123 274 L114 274 Z';
+const D_PLANET = 'M228 130 A68 68 0 1 0 92 130 A68 68 0 1 0 228 130 Z';
+const D_RING_OUTER = 'M28 136 C48 91 116 70 194 77 C267 83 307 109 294 140 C278 177 205 195 126 186 C54 179 13 157 28 136 Z';
+const D_RING_INNER = 'M55 137 C72 106 128 93 192 98 C250 103 279 120 265 142 C248 166 193 176 130 168 C75 162 43 149 55 137 Z';
+const D_RING_FRONT = 'M28 147 C70 166 130 175 193 169 C242 164 278 149 294 137 L291 151 C267 176 218 188 158 190 C96 191 46 176 27 154 Z';
+const D_BAND_A = 'M91 108 C126 96 187 97 229 111 L226 123 C184 111 127 111 94 122 Z';
+const D_BAND_B = 'M93 142 C132 153 190 154 226 140 L222 153 C183 168 128 165 97 154 Z';
+const D_STORM = 'M196 126 A13 9 0 1 0 170 126 A13 9 0 1 0 196 126 Z';
+const D_HIGHLIGHT = 'M119 84 C101 102 96 131 106 154 C113 169 125 181 140 188 C111 179 92 157 92 130 C92 109 102 92 119 84 Z';
 
 /**
  * `fill` é a distância média entre fragmentos internos, `edge` a distância
  * entre fragmentos de contorno — ambos em unidades lógicas. Menor = mais
- * denso. `depth` é o plano da parte (0 = fundo, 1 = frente): asas e saia
- * ficam atrás do corpo, janela e bocais na frente.
+ * denso. `depth` é o plano da parte (0 = fundo, 1 = frente): a metade de trás
+ * do anel vem antes da esfera e o arco inferior passa pela frente.
  */
 const PARTS = [
   {
-    id: 'fin-l', d: D_FIN_L, fill: 9.5, edge: 4.8, depth: 0.18,
-    color: '#7b62f2', edgeColor: '#b6a7ff', glow: 0.12,
+    id: 'ring-back', d: D_RING_OUTER, cut: [D_RING_INNER], fill: 9, edge: 4.7, depth: 0.18,
+    color: '#8067ff', edgeColor: '#c9c1ff', glow: 0.18,
   },
   {
-    id: 'fin-r', d: D_FIN_R, fill: 9.5, edge: 4.8, depth: 0.18,
-    color: '#7b62f2', edgeColor: '#b6a7ff', glow: 0.12,
+    id: 'planet', d: D_PLANET, fill: 10.5, edge: 4.4, depth: 0.5,
+    cut: [D_BAND_A, D_BAND_B, D_STORM],
+    color: '#9aa6e8', edgeColor: '#eef0ff', glow: 0.13,
   },
   {
-    id: 'skirt', d: D_SKIRT, fill: 8.5, edge: 4.6, depth: 0.32,
-    color: '#704078', edgeColor: '#c9a9d4', glow: 0.1,
+    id: 'band-a', d: D_BAND_A, clip: D_PLANET, fill: 6.5, edge: 4.5, depth: 0.62,
+    color: '#704078', edgeColor: '#d9bde0', glow: 0.12,
   },
   {
-    id: 'body', d: D_BODY, fill: 11, edge: 4.5, depth: 0.5,
-    cut: [D_RING, D_BAND_A, D_BAND_B],
-    color: '#cfc9e6', edgeColor: '#f4f1fb', glow: 0.06,
+    id: 'band-b', d: D_BAND_B, clip: D_PLANET, fill: 6.5, edge: 4.5, depth: 0.64,
+    color: '#8067ff', edgeColor: '#c7bdff', glow: 0.17,
   },
   {
-    id: 'nose', d: D_NOSE, fill: 9, edge: 4.3, depth: 0.55,
-    color: '#9aa6e8', edgeColor: '#d5daff', glow: 0.14,
+    id: 'highlight', d: D_HIGHLIGHT, clip: D_PLANET, fill: 9, edge: 5.2, depth: 0.7,
+    color: '#d5daff', edgeColor: '#f4f1fb', glow: 0.22,
   },
   {
-    id: 'band-a', d: D_BAND_A, clip: D_BODY, fill: 5.4, edge: 4.6, depth: 0.62,
-    color: '#8067ff', edgeColor: '#aab5ee', glow: 0.18,
+    id: 'storm', d: D_STORM, fill: 5.4, edge: 3.9, depth: 0.78,
+    color: '#e5bee9', edgeColor: '#fff0ff', glow: 0.28,
   },
   {
-    id: 'band-b', d: D_BAND_B, clip: D_BODY, fill: 5.4, edge: 4.6, depth: 0.62,
-    color: '#8067ff', edgeColor: '#aab5ee', glow: 0.18,
-  },
-  {
-    id: 'ring', d: D_RING, cut: [D_GLASS], fill: 5.4, edge: 4.3, depth: 0.72,
-    color: '#8067ff', edgeColor: '#c3b9ff', glow: 0.15,
-  },
-  {
-    id: 'glass', d: D_GLASS, fill: 5.8, edge: 4.4, depth: 0.8,
-    color: '#e5bee9', edgeColor: '#f6e9f8', glow: 0.2,
-  },
-  {
-    id: 'nozzle-l', d: D_NOZZLE_L, fill: 6.2, edge: 4.2, depth: 0.9,
-    color: '#8a6fb0', edgeColor: '#e0cfea', glow: 0.3,
-  },
-  {
-    id: 'nozzle-c', d: D_NOZZLE_C, fill: 6.2, edge: 4.2, depth: 0.9,
-    color: '#8a6fb0', edgeColor: '#e0cfea', glow: 0.26,
-  },
-  {
-    id: 'nozzle-r', d: D_NOZZLE_R, fill: 6.2, edge: 4.2, depth: 0.9,
-    color: '#8a6fb0', edgeColor: '#e0cfea', glow: 0.3,
+    id: 'ring-front', d: D_RING_FRONT, fill: 8, edge: 4.3, depth: 0.92,
+    color: '#8f78ff', edgeColor: '#e1dcff', glow: 0.24,
   },
 ];
 
@@ -144,7 +119,7 @@ function rasterize(part) {
 
   if (part.clip) {
     // Interseção: desenha a área permitida, depois só mantém o que a
-    // sobrepõe. É o que mantém as faixas dentro das laterais curvas do corpo.
+    // sobrepõe. É o que mantém as faixas dentro da esfera do planeta.
     ctx.fill(new Path2D(part.clip));
     ctx.globalCompositeOperation = 'source-in';
   }
@@ -245,7 +220,7 @@ function makePoly(rnd) {
 /**
  * Dispersão inicial. Não é ruído puro: a direção parte do próprio ponto de
  * destino, então cada peça se afasta pelo caminho por onde vai voltar, e o
- * conjunto disperso ainda lê como "um foguete desmontado" e não como confete.
+ * conjunto disperso ainda preserva a leitura radial do planeta.
  * A distância usa rnd² — a maioria fica perto, algumas vão muito longe.
  */
 function scatterIn(f, rnd) {
@@ -313,7 +288,7 @@ export function buildFragments({ quality = 1, seed = 20160411 } = {}) {
      * Contorno e miolo não encolhem juntos. Reduzir peças é sempre reduzir
      * massa interna primeiro: é o contorno que carrega a leitura da forma,
      * então ele perde densidade devagar e o preenchimento perde rápido. Um
-     * celular recebe um foguete com menos massa, não um foguete borrado.
+     * celular recebe um planeta com menos massa, não um planeta borrado.
      */
     const edgeSpacing = part.edge / (0.35 + 0.65 * quality);
     const fillStep = part.fill / (quality * 0.85);
@@ -371,11 +346,10 @@ export function buildFragments({ quality = 1, seed = 20160411 } = {}) {
       scatterOut(f, rnd);
 
       /*
-       * Stagger. A montagem sobe: as peças da base chegam antes das do nariz,
-       * como uma estrutura erguida do chão. A desmontagem começa pelas
-       * extremidades — pontas de asa e nariz se soltam primeiro, o núcleo
-       * resiste. Metade do atraso vem da posição, metade do sorteio: o padrão
-       * é legível sem parecer uma varredura mecânica.
+       * Stagger. A montagem avança de baixo para cima e a desmontagem começa
+       * nas extremidades do anel antes de alcançar o núcleo. Metade do atraso
+       * vem da posição, metade do sorteio: o padrão é legível sem parecer uma
+       * varredura mecânica.
        */
       const fromBottom = 1 - f.uy / SHAPE.h;
       const fromAxis = Math.min(

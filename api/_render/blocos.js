@@ -1,20 +1,34 @@
 // Blocos usados em mais de uma página.
 import {esc, icon, txt, pad, destino, alvo, numeroWhatsapp, telefoneTexto, A_CONFIRMAR, imagemSegura, botao} from './fmt.js';
 
-const TONS = ['#eee8f7', '#f2e7ee', '#e8ebf8'];
+const TONS = [
+  {fundo: '#f0edff', vivo: '#8067ff', tinta: '#352b78'},
+  {fundo: '#f8eaf5', vivo: '#b94c9f', tinta: '#642654'},
+  {fundo: '#e9efff', vivo: '#5277d9', tinta: '#243c78'},
+  {fundo: '#f5e9ff', vivo: '#914fc1', tinta: '#4d266a'},
+];
 
 export const servicosPublicados = C => (C.servicos || []).filter(s => s.publicado !== false && s.slug && s.titulo);
 
 export function cardServico(s, i, {rotuloProblema, linkDetalhe, linkContato}) {
+  const tom = TONS[i % TONS.length];
+  const entregas = (s.entregas || []).filter(Boolean).slice(0, 3);
   return `
-          <article class="service-card" data-reveal="stagger" data-reveal-group="svc" style="--tone:${TONS[i % 3]}">
-            <span class="card-num">${pad(i + 1)}</span>
-            <div class="service-icon">${icon(s.icone || 'i-panels')}</div>
-            ${s.problema ? `<p class="service-problem"><small>${esc(rotuloProblema)}</small><strong>${txt(s.problema)}</strong></p>` : ''}
-            <h3>${esc(s.titulo)}</h3>
-            ${s.descricao ? `<p>${txt(s.descricao)}</p>` : ''}
+          <article class="service-card" data-reveal="stagger" data-reveal-group="svc" style="--tone:${tom.fundo};--tone-vivid:${tom.vivo};--tone-ink:${tom.tinta}">
+            <div class="service-card-visual" aria-hidden="true">
+              <span class="service-orbit"></span>
+              <div class="service-icon">${icon(s.icone || 'i-panels')}</div>
+              <span class="card-num">${pad(i + 1)}</span>
+            </div>
+            <div class="service-card-body">
+              <span class="service-label">Solução digital</span>
+              <h3>${esc(s.titulo)}</h3>
+              ${s.descricao ? `<p class="service-summary">${txt(s.descricao)}</p>` : ''}
+              ${s.problema ? `<p class="service-problem"><small>${esc(rotuloProblema || 'Ideal para')}</small><strong>${txt(s.problema)}</strong></p>` : ''}
+              ${entregas.length ? `<ul class="service-points" aria-label="Principais entregas">${entregas.map(item => `<li>${esc(item)}</li>`).join('')}</ul>` : ''}
+            </div>
             <div class="service-actions">
-              ${linkDetalhe ? `<a class="text-link" href="/solucoes/${esc(s.slug)}/">${esc(linkDetalhe)} ${icon('i-arrow-right')}</a>` : ''}
+              ${linkDetalhe ? `<a class="text-link" href="/solucoes/${esc(s.slug)}/">${esc(linkDetalhe)}</a>` : ''}
               ${linkContato ? `<a class="text-link" href="/contato/?servico=${esc(s.slug)}">${esc(linkContato)}</a>` : ''}
             </div>
           </article>`;

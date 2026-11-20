@@ -148,7 +148,7 @@ function processo(S, C) {
 function montagem(S) {
   const fases = ['scatter', 'assemble', 'formed', 'disassemble'];
   return `
-    <!-- ============ Montagem: o foguete construído pelo scroll ============ -->
+    <!-- ============ Montagem: o planeta construído pelo scroll ============ -->
     <section${secao({classes: 'assembly', tom: 'dark', cores: S.cores, extra: ' id="assembly" data-rocket-x="0.03" aria-labelledby="assembly-title"'})}>
       <div class="assembly-stage" id="assembly-stage" data-phase="scatter">
         <canvas id="assembly-canvas" aria-hidden="true"></canvas>

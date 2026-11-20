@@ -5,7 +5,7 @@ import {limparEfeitos} from '../../assets/js/motion/efeitos.js';
 
 export const SITE = 'https://ejuvv.com';
 // Muda a cada versão dos arquivos de estilo e script, para o navegador não usar cópias antigas.
-const V = '20261024';
+const V = '20261120-4';
 const v = u => `${u}?v=${V}`;
 
 /* ---------------- Scripts embutidos e Content-Security-Policy ----------------
@@ -156,8 +156,8 @@ ${robots ? `<meta name="robots" content="${robots}">\n` : ''}<link rel="canonica
 <meta property="og:image" content="${esc(imagemAbsoluta(imagem || C.geral.seo.imagem))}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#35143d">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="${v('/favicon.png')}" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="${v('/apple-touch-icon.png')}" sizes="180x180">
 <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${v('/assets/css/base.css')}">

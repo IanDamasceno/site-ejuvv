@@ -67,9 +67,13 @@ function splinePath(points, { tension = 0.55, minX = 0, maxX = Infinity } = {}) 
   for (let i = 1; i < p.length - 2; i++) {
     const [p0, p1, p2, p3] = [p[i - 1], p[i], p[i + 1], p[i + 2]];
     const c1x = clampX(p1.x + ((p2.x - p0.x) / 6) * tension);
-    const c1y = p1.y + ((p2.y - p0.y) / 6) * tension;
+    // Os beats sÃ£o ordenados de cima para baixo. Limitar os controles ao
+    // intervalo do segmento impede pequenas voltas verticais na BÃ©zier quando
+    // duas seÃ§Ãµes vizinhas tÃªm alturas muito diferentes.
+    const clampY = (v) => Math.min(Math.max(v, p1.y), p2.y);
+    const c1y = clampY(p1.y + ((p2.y - p0.y) / 6) * tension);
     const c2x = clampX(p2.x - ((p3.x - p1.x) / 6) * tension);
-    const c2y = p2.y - ((p3.y - p1.y) / 6) * tension;
+    const c2y = clampY(p2.y - ((p3.y - p1.y) / 6) * tension);
     d += ` C ${c1x.toFixed(2)} ${c1y.toFixed(2)}, ${c2x.toFixed(2)} ${c2y.toFixed(2)}, ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}`;
   }
 
@@ -147,6 +151,7 @@ export function createRocket(userOptions = {}) {
   let ignited = false;
   let destroyed = false;
   let lastPoint = { x: 0, y: 0 };
+  let travelDirection = 1; // 1 = descendo a pÃ¡gina; -1 = subindo
 
   /* ------------------------------------------------------------ construção */
   function build() {
@@ -231,7 +236,8 @@ export function createRocket(userOptions = {}) {
 
     const s = clamp(progress.value) * pathLength;
     const point = trailEl.getPointAtLength(s);
-    const tangent = tangentAt(trailEl, s, pathLength);
+    const pathTangent = tangentAt(trailEl, s, pathLength);
+    const tangent = pathTangent + (travelDirection < 0 ? 180 : 0);
 
     // Parado na rampa o foguete aponta para cima; em voo ele aponta para onde
     // está indo. O alinhamento acompanha a velocidade, então a virada acontece
@@ -271,7 +277,12 @@ export function createRocket(userOptions = {}) {
     if (destroyed) return;
     clock += dt;
 
-    progress.target = scrollProgress();
+    const nextTarget = scrollProgress();
+    const scrollDelta = nextTarget - progress.target;
+    // O sentido vem do gesto de scroll, nÃ£o da velocidade instantÃ¢nea da
+    // mola. Assim um pequeno rebote nÃ£o faz o foguete virar ao contrÃ¡rio.
+    if (Math.abs(scrollDelta) > 0.00002) travelDirection = scrollDelta > 0 ? 1 : -1;
+    progress.target = nextTarget;
     progress.step(dt);
 
     // A velocidade normalizada vem da mola, não do scroll: por isso o foguete

@@ -62,9 +62,9 @@
   object-fit: contain;
   transform-origin: 50% 50%;
   filter:
-    brightness(1.38) saturate(1.12)
-    drop-shadow(0 0 1px rgba(255, 255, 255, 0.38))
-    drop-shadow(0 8px 18px rgba(128, 103, 255, 0.26));
+    brightness(1.08) saturate(1.04)
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.22))
+    drop-shadow(0 8px 18px rgba(128, 103, 255, 0.32));
   animation: brand-mark-pulse 4.8s var(--ease-in-out) infinite;
   transition: transform var(--dur) var(--ease-out);
 }

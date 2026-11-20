@@ -1,5 +1,5 @@
 /**
- * Montagem por fragmentos — o foguete construído pelo scroll.
+ * Montagem por fragmentos — o planeta construído pelo scroll.
  *
  * Uma cena presa (sticky) dentro de uma seção alta. O scroll da seção é
  * convertido em UM progresso normalizado 0 → 1, e esse número é a única
@@ -7,9 +7,9 @@
  * e por isso a animação é perfeitamente reversível — rolar para cima
  * desmonta o que rolar para baixo montou, no mesmo caminho.
  *
- *   0.00 ─ 0.35   montagem     fragmentos dispersos → foguete completo
- *   0.35 ─ 0.60   estabilidade foguete formado, com micro-vida
- *   0.60 ─ 1.00   desmontagem  foguete → fragmentos dispersos
+ *   0.00 ─ 0.35   montagem     fragmentos dispersos → planeta completo
+ *   0.35 ─ 0.60   estabilidade planeta formado, com micro-vida
+ *   0.60 ─ 1.00   desmontagem  planeta → fragmentos dispersos
  *
  * Cada faixa é renormalizada para 0..1 antes de mover qualquer peça, e cada
  * peça tem atraso e duração próprios dentro da faixa — é daí que vem o
@@ -35,8 +35,8 @@ const HOLD_END = 0.6;
 
 /**
  * Perfis por dispositivo. `quality` escala a densidade de fragmentos; a
- * silhueta é a mesma nos três — o celular recebe um foguete com menos peças,
- * não um foguete menos reconhecível.
+ * silhueta é a mesma nos três — o celular recebe um planeta com menos peças,
+ * não um planeta menos reconhecível.
  */
 const PROFILES = {
   desktop: { quality: 1, ambient: 74, stars: 150, glow: 110, dpr: 2, fit: 0.6 },
@@ -186,7 +186,7 @@ export function createAssembly(userOptions = {}) {
     canvas.style.width = `${vw}px`;
     canvas.style.height = `${vh}px`;
 
-    // O foguete cabe na altura em telas largas e na largura em telas
+    // O planeta cabe na altura em telas largas e na largura em telas
     // estreitas — nunca encosta nas bordas nem some.
     scale = Math.min((vh * profile.fit) / SHAPE.h, (vw * 0.62) / SHAPE.w);
     cx = vw / 2;
@@ -232,7 +232,7 @@ export function createAssembly(userOptions = {}) {
 
   function drawBackdrop(p, form) {
     // Estrelas: parallax mínimo ligado ao progresso e cintilação lenta.
-    // Nunca chegam perto do brilho do foguete — o fundo não disputa.
+    // Nunca chegam perto do brilho do planeta — o fundo não disputa.
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     for (const s of stars) {
       const y = ((s.y - p * 0.06 * s.depth) % 1 + 1) % 1;
@@ -242,7 +242,7 @@ export function createAssembly(userOptions = {}) {
       ctx.fillRect(s.x * vw, y * vh, s.r, s.r);
     }
 
-    // Halo do foguete montado: cresce com a formação e some na desmontagem.
+    // Halo do planeta montado: cresce com a formação e some na desmontagem.
     if (form > 0.02) {
       const r = SHAPE.h * scale * 0.95;
       ctx.globalCompositeOperation = 'lighter';
@@ -278,7 +278,7 @@ export function createAssembly(userOptions = {}) {
 
   function drawFragments(dt, form, apart) {
     const hold = form * (1 - apart);
-    // Respiração: quase imperceptível, mas suficiente para o foguete
+    // Respiração: quase imperceptível, mas suficiente para o planeta
     // formado não parecer uma imagem congelada.
     const breath = 1 + Math.sin(clock * 0.62) * 0.004 * hold;
     const floatY = Math.sin(clock * 0.45) * vh * 0.006 * hold;
@@ -436,7 +436,7 @@ export function createAssembly(userOptions = {}) {
      * A rigidez cresce com a distância até o alvo. Um lambda fixo baixo o
      * bastante para amaciar o passo do wheel deixa a cena arrastada num
      * salto grande (âncora, barra de rolagem, Page Down): a cena continuaria
-     * montando o foguete enquanto a seção já saiu da tela. Assim, movimento
+     * montando o planeta enquanto a seção já saiu da tela. Assim, movimento
      * fino continua macio e salto grande alcança o scroll quase na hora.
      */
     const target = scrollProgress();
@@ -525,7 +525,7 @@ export function createAssembly(userOptions = {}) {
 }
 
 /**
- * Com redução de movimento, a cena não anima: desenha o foguete montado uma
+ * Com redução de movimento, a cena não anima: desenha o planeta montado uma
  * única vez. O usuário vê a mesma imagem — só não vê o processo.
  */
 export function initAssembly(options) {

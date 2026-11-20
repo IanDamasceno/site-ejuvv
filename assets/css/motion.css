@@ -117,7 +117,7 @@
 .hero-ring { transform-origin: center; }
 
 /* ==========================================================================
-   Cena de montagem — o foguete construído por fragmentos
+   Cena de montagem — o planeta construído por fragmentos
 
    A seção alta é só espaço de scroll; nada dentro dela rola. O palco fica
    preso na viewport e o canvas desenha a cena inteira. Toda a animação vive
@@ -290,7 +290,7 @@
 
   #rocket-layer { display: none; }
 
-  /* A cena de montagem vira uma imagem: o JS desenha o foguete formado uma
+  /* A cena de montagem vira uma imagem: o JS desenha o planeta formado uma
      vez e a seção encolhe para a altura de uma tela — sem scroll a gastar
      numa animação que não vai acontecer. */
   .assembly { --assembly-scroll: 100vh; }
