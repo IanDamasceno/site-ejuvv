@@ -190,8 +190,8 @@
         "texto": "Conheça nossa história",
         "destino": "/sobre/"
       },
-      "imagem": "",
-      "imagemAlt": "",
+      "imagem": "/assets/img/equipe-ejuvv.jpg",
+      "imagemAlt": "Equipe da EJUVV reunida segurando a bandeira da empresa júnior",
       "destaqueTitulo": "EJUVV desde 2016",
       "destaqueTexto": "Empresa Júnior da Universidade Vila Velha",
       "cores": {}
@@ -365,8 +365,8 @@
         "eyebrow": "Nossa história",
         "titulo": "Uma empresa júnior desde 2016.",
         "texto": "Na EJUVV, estudantes de diferentes cursos participam de todas as etapas de um projeto: entendem a demanda, definem o escopo, desenvolvem a entrega e apresentam o resultado ao cliente.\n\nAs empresas contam com uma equipe acompanhada e disposta a estudar cada contexto. Os estudantes saem da sala de aula para lidar com prazos, decisões e clientes reais.",
-        "imagem": "",
-        "imagemAlt": "",
+        "imagem": "/assets/img/equipe-ejuvv.jpg",
+        "imagemAlt": "Equipe da EJUVV reunida segurando a bandeira da empresa júnior",
         "destaqueTitulo": "EJUVV desde 2016",
         "destaqueTexto": "Projetos conduzidos por estudantes da Universidade Vila Velha",
         "cores": {}
